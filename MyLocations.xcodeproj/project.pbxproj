@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		096C1DD7267E1C4600521153 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096C1DD6267E1C4600521153 /* LocationDetailsViewController.swift */; };
 		09824C6926785D4A003E86CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09824C6826785D4A003E86CA /* AppDelegate.swift */; };
 		09824C6B26785D4A003E86CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09824C6A26785D4A003E86CA /* SceneDelegate.swift */; };
 		09824C6D26785D4A003E86CA /* CurrrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09824C6C26785D4A003E86CA /* CurrrentLocationViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		096C1DD6267E1C4600521153 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		09824C6526785D4A003E86CA /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09824C6826785D4A003E86CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09824C6A26785D4A003E86CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				09824C7626785D5C003E86CA /* LaunchScreen.storyboard */,
 				09824C7926785D5C003E86CA /* Info.plist */,
 				09824C7126785D4A003E86CA /* MyLocations.xcdatamodeld */,
+				096C1DD6267E1C4600521153 /* LocationDetailsViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				09824C6926785D4A003E86CA /* AppDelegate.swift in Sources */,
 				09824C7326785D4A003E86CA /* MyLocations.xcdatamodeld in Sources */,
 				09824C6B26785D4A003E86CA /* SceneDelegate.swift in Sources */,
+				096C1DD7267E1C4600521153 /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
