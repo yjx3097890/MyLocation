@@ -30,7 +30,19 @@ class LocationDetailsViewController: UITableViewController {
 
     // MARK: - Actions
     @IBAction func done() {
-        navigationController?.popViewController(animated: true)
+        
+        guard let mainView = navigationController?.parent?.view else {
+            return
+        }
+        let hud = HudView.hud(inView: mainView, animated: true)
+        hud.text = "Tagged"
+        
+        afterDelay(0.6) {
+            self.navigationController?.popViewController(animated: true)
+            hud.hide()
+        }
+        
+        
     }
     
     @IBAction func cancel() {
@@ -60,6 +72,10 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
+        // Hide Key
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +92,36 @@ class LocationDetailsViewController: UITableViewController {
         }
     }
     
+    // MARK: - Table View Delegates
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section < 3 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
+    
     // MARK: - helper methods
+    
+    @objc func hideKeyboard(
+      _ gestureRecognizer: UIGestureRecognizer
+    ) {
+      let point = gestureRecognizer.location(in: tableView)
+      let indexPath = tableView.indexPathForRow(at: point)
+
+      if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
+        return
+      }
+      descriptionTextView.resignFirstResponder()
+    }
+
+    
     
     func stringFor(placemark: CLPlacemark) -> String {
         var text = ""
