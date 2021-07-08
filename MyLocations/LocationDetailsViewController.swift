@@ -30,7 +30,7 @@ class LocationDetailsViewController: UITableViewController {
     var category = "No Category"
     
     var managedObjectContext: NSManagedObjectContext!
-    
+    var date = Date()
 
     // MARK: - Actions
     @IBAction func done() {
@@ -41,10 +41,26 @@ class LocationDetailsViewController: UITableViewController {
         let hud = HudView.hud(inView: mainView, animated: true)
         hud.text = "Tagged"
         
-        afterDelay(0.6) {
-            self.navigationController?.popViewController(animated: true)
-            hud.hide()
+        let location = Location(context: managedObjectContext)
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = category
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+                self.navigationController?.popViewController(animated: true)
+                hud.hide()
+            }
+        } catch {
+            fatalCoreDataError(error)
         }
+        
+        
         
         
     }
@@ -68,7 +84,7 @@ class LocationDetailsViewController: UITableViewController {
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
         
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         if let placemark = placemark {
             addressLabel.text = stringFor(placemark: placemark)
