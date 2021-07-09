@@ -31,6 +31,8 @@ class LocationDetailsViewController: UITableViewController {
     
     var managedObjectContext: NSManagedObjectContext!
     var date = Date()
+    
+    var locationToEdit: Location?
 
     // MARK: - Actions
     @IBAction func done() {
