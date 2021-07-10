@@ -428,26 +428,25 @@
         <scene sceneID="rRQ-7s-raO">
             <objects>
                 <tableViewController id="DTt-xr-inT" customClass="LocationsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="5P2-Kd-XWI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="5P2-Kd-XWI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="65" id="5Cw-hD-JjI" customClass="LocationCell" customModule="MyLocations" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="375" height="65"/>
+                                <rect key="frame" x="16" y="49.5" width="343" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Cw-hD-JjI" id="21F-TF-mqr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iJ-VC-bj6">
-                                            <rect key="frame" x="16" y="11" width="95" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="311" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lu-ha-V9k">
-                                            <rect key="frame" x="16" y="33" width="53" height="17"/>
+                                            <rect key="frame" x="16" y="33" width="311" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <color key="highlightedColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -455,6 +454,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7iJ-VC-bj6" firstAttribute="leading" secondItem="21F-TF-mqr" secondAttribute="leadingMargin" id="Aa2-PO-cOp"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7iJ-VC-bj6" secondAttribute="trailing" id="DxB-U5-Nrg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9Lu-ha-V9k" secondAttribute="trailing" id="a1Y-W8-6Vw"/>
                                         <constraint firstItem="9Lu-ha-V9k" firstAttribute="leading" secondItem="7iJ-VC-bj6" secondAttribute="leading" id="iUT-og-kl6"/>
                                         <constraint firstItem="9Lu-ha-V9k" firstAttribute="top" secondItem="7iJ-VC-bj6" secondAttribute="bottom" constant="1" id="jT6-cJ-8y0"/>
                                         <constraint firstItem="7iJ-VC-bj6" firstAttribute="top" secondItem="21F-TF-mqr" secondAttribute="topMargin" id="vCS-1Z-34j"/>

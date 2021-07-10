@@ -28,11 +28,22 @@ class LocationDetailsViewController: UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var category = "No Category"
+    var date = Date()
+    var descriptionText = ""
     
     var managedObjectContext: NSManagedObjectContext!
-    var date = Date()
-    
-    var locationToEdit: Location?
+  
+    var locationToEdit: Location? {
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                category = location.category
+                placemark = location.placemark
+                date = location.date
+                coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            }
+        }
+    }
 
     // MARK: - Actions
     @IBAction func done() {
@@ -41,10 +52,15 @@ class LocationDetailsViewController: UITableViewController {
             return
         }
         let hud = HudView.hud(inView: mainView, animated: true)
-        hud.text = "Tagged"
         
-        let location = Location(context: managedObjectContext)
-        
+        let location: Location
+        if let temp = locationToEdit {
+            hud.text = "Updated"
+            location = temp
+        } else {
+            hud.text = "Tagged"
+            location = Location(context: managedObjectContext)
+        }
         location.locationDescription = descriptionTextView.text
         location.category = category
         location.latitude = coordinate.latitude
@@ -79,8 +95,12 @@ class LocationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let location = locationToEdit {
+            title = "Edit Location"
+        }
 
-        descriptionTextView.text = ""
+        descriptionTextView.text = descriptionText
         categoryLabel.text = category
         
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
