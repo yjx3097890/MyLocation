@@ -418,6 +418,7 @@
                     <connections>
                         <segue destination="i23-9a-xF5" kind="relationship" relationship="viewControllers" id="JHE-4N-NiH"/>
                         <segue destination="UmB-Q4-DBi" kind="relationship" relationship="viewControllers" id="qEr-tP-rby"/>
+                        <segue destination="JEe-9S-Odp" kind="relationship" relationship="viewControllers" id="Dfr-mc-OeX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eX1-Ht-8W0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -477,7 +478,51 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dx-7O-hEJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="821"/>
+            <point key="canvasLocation" x="668" y="842"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="b2n-SN-bU8">
+            <objects>
+                <viewController id="GAP-kG-5gX" customClass="MapViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ij-zD-b0I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0b-CN-IGv">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GAP-kG-5gX" id="WbB-0L-iDv"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oQc-Qj-ScF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oQc-Qj-ScF" firstAttribute="bottom" secondItem="L0b-CN-IGv" secondAttribute="bottom" id="6pd-lm-ocQ"/>
+                            <constraint firstItem="oQc-Qj-ScF" firstAttribute="trailing" secondItem="L0b-CN-IGv" secondAttribute="trailing" id="JBh-zC-g2t"/>
+                            <constraint firstItem="L0b-CN-IGv" firstAttribute="leading" secondItem="oQc-Qj-ScF" secondAttribute="leading" id="RT4-QP-YGc"/>
+                            <constraint firstItem="L0b-CN-IGv" firstAttribute="top" secondItem="oQc-Qj-ScF" secondAttribute="top" id="bta-CV-SB6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="q6p-cg-h3b">
+                        <barButtonItem key="leftBarButtonItem" title="Locations" id="lEf-wq-tUK">
+                            <connections>
+                                <action selector="showLocations" destination="GAP-kG-5gX" id="XVM-Fd-J5k"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="XKT-NY-avF">
+                            <connections>
+                                <action selector="showUser" destination="GAP-kG-5gX" id="oTo-Se-gd8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="L0b-CN-IGv" id="jPm-O8-dId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVc-ad-t00" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-703.89805097451278"/>
         </scene>
         <!--Locations-->
         <scene sceneID="w8S-fc-ShY">
@@ -494,7 +539,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOf-sx-5uD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-900" y="821"/>
+            <point key="canvasLocation" x="-135" y="842"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="hUK-3E-aj1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JEe-9S-Odp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="3u4-D2-SV9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pkd-Tm-lwg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GAP-kG-5gX" kind="relationship" relationship="rootViewController" id="nWo-J7-FoR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHo-Wv-4mC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-135.19999999999999" y="-703.89805097451278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
