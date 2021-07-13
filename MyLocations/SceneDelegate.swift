@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-   // 当用户停止与场景交互（例如通过切换器切换到另一个场景）时调用
+   // 当用户无法与场景交互（例如通过切换器切换到另一个场景）时调用
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
