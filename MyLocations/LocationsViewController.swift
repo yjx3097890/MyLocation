@@ -83,6 +83,7 @@ class LocationsViewController: UITableViewController {
         if editingStyle == .delete {
              // Delete the row from the data source
             let location = fetchedResultsController.object(at: indexPath)
+            location.removePhotoFile()
             managedObjectContext.delete(location)
             
             do {
@@ -153,7 +154,7 @@ extension LocationsViewController: NSFetchedResultsControllerDelegate {
         switch type {
         case .insert:
             print("*** NSFetchedResultsChangeInsert (object)")
-            tableView.insertRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
             print("*** NSFetchedResultsChangeDelete (object)")
             tableView.deleteRows(at: [indexPath!], with: .fade)

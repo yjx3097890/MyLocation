@@ -11,7 +11,8 @@ class LocationCell: UITableViewCell {
     
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
-
+    @IBOutlet weak var photoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +31,8 @@ class LocationCell: UITableViewCell {
           } else {
             descriptionLabel.text = location.locationDescription
           }
+        
+        photoImageView.image = thumbnail(for: location)
 
          
         if let placemark = location.placemark {
@@ -47,6 +50,14 @@ class LocationCell: UITableViewCell {
           } else {
             addressLabel.text = String(format: "Lat: %.8f, Lon: %.8f", location.latitude, location.longitude)
           }
+    }
+    
+    func thumbnail(for location: Location) -> UIImage {
+        if location.hasPhoto, let image = location.photoImage {
+            return image
+        } else {
+            return UIImage()
+        }
     }
 
 }
