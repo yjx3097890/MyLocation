@@ -49,7 +49,29 @@ class LocationsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = fetchedResultsController.sections![section]
-        return section.name
+        return section.name.uppercased()
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let labelRecct = CGRect(x: 15, y: tableView.sectionHeaderHeight - 14, width: tableView.bounds.size.width - 15, height: 14)
+        let label = UILabel(frame: labelRecct)
+        label.font = UIFont.boldSystemFont(ofSize: 11)
+        label.text =  self.tableView(tableView, titleForHeaderInSection: section)
+        label.textColor =  UIColor(white: 1.0, alpha: 1)
+        label.backgroundColor = UIColor.clear
+        
+        let separateRect = CGRect(x: 15, y: tableView.sectionHeaderHeight - 0.5, width: tableView.bounds.size.width - 15, height: 0.5)
+        let separator = UIView(frame: separateRect)
+        separator.backgroundColor = tableView.separatorColor
+        
+        print(tableView.sectionHeaderHeight)
+        
+        let viewRect = CGRect(x: 0, y: 0, width: tableView.bounds.size.height, height: tableView.sectionHeaderHeight)
+        let view = UIView(frame: viewRect)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.85)
+        view.addSubview(label)
+        view.addSubview(separator)
+        return view
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
